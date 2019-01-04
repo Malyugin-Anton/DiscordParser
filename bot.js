@@ -4,24 +4,6 @@ const client = new Discord.Client();
 const serverid = "530704221834575873" // ID - сервер в который все идет
 const serverid2 = "530702782764679168" // ID2 - сервер с которого парсится
 
-function commandIs(str, msg) {
-    return msg.content.toLowerCase().startsWith("." + str);
-}
-
-function pluck(array) {
-    return array.map(function (item) {
-        return item["name"];
-    });
-}
-
-function hasRole(mem, role) {
-    if (pluck(mem.roles).includes(role)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 client.on("message", message => {
     if (message.guild.id == serverid2) //если сообщение с сервера, с которого идет парсинг
     {
@@ -40,19 +22,13 @@ client.on("message", message => {
                     } else {
                         client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
                         client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(embed)
-
                     }
-
                 }
-
             }
         } else {
-
             client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
-
         }
     }
-
 })
 
 
