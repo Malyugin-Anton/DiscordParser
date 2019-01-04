@@ -1,77 +1,59 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const CC = require('./command_create.js');
-const Command = CC.Command;
 
-const serverid = process.env.ID
+const serverid = "530704221834575873" // ID - сервер в который все идет
+const serverid2 = "530702782764679168" // ID2 - сервер с которого парсится
 
-
-
-var Commandss = new CC.Commands();
-var fs = require("fs");
-
-function commandIs(str, msg){
+function commandIs(str, msg) {
     return msg.content.toLowerCase().startsWith("." + str);
 }
 
 function pluck(array) {
-    return array.map(function(item) { return item["name"]; });
+    return array.map(function (item) {
+        return item["name"];
+    });
 }
 
-function hasRole(mem, role)
-{
-    if (pluck(mem.roles).includes(role))
-    {
+function hasRole(mem, role) {
+    if (pluck(mem.roles).includes(role)) {
         return true;
-    }
-    else
-    {
+    } else {
         return false;
     }
 }
 
-client.on("message", message =>
-{
-    if(message.embeds.toString() != "")
+client.on("message", message => {
+    if (message.guild.id == serverid2) //если сообщение с сервера, с которого идет парсинг
     {
-       if(message.content.startsWith("http"))
-       {
-        client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
-       }
-       else
-       {
-           if(message.content.includes("http"))
-           {
-            client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
-           }
-           else
-           {
-            var embed = new Discord.MessageEmbed(message.embeds[0])
-            var cont;
-            if(message.content == "")
-            {
-                client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(embed)
-            }
-            else
-            {
+        if (message.embeds.toString() != "") //выполнять, если есть embed
+        {
+            if (message.content.startsWith("http")) {
                 client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
-                client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(embed)
+            } else {
+                if (message.content.includes("http")) {
+                    client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
+                } else {
+                    var embed = new Discord.MessageEmbed(message.embeds[0])
+                    var cont;
+                    if (message.content == "") {
+                        client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(embed)
+                    } else {
+                        client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
+                        client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(embed)
+
+                    }
+
+                }
 
             }
-        
-           }
+        } else {
 
-       }
+            client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
+
+        }
     }
-    else
-    {
-        
-       client.guilds.get(serverid).channels.get(client.guilds.get(serverid).channels.find('name', message.channel.name).id).send(message.content)
-        
-    }
+
 })
 
 
-client.login(process.env.BOT_TOKEN);
-
-
+client.login('NDYxNTM0MjY2Njc3OTE5NzY1.DxDeIQ.Di-LTu7v7tCxrNbn4Rfd65C1Mj0'); //вход для бота
