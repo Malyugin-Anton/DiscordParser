@@ -10,7 +10,8 @@
     "dev": "nodemon bot.js"
   },
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "jsonfile": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
