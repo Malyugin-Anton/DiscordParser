@@ -1,8 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const infoServers = require('./config')
 
 const serverid = "530704221834575873" // ID - сервер в который все идет
 const serverid2 = "530702782764679168" // ID2 - сервер с которого парсится
+
+client.on("ready", () => {
+  console.log("bot 2 ready!");
+});
 
 client.on("message", message => {
   //если сообщение с сервера, с которого идет парсинг

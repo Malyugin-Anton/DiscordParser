@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const jsonfile = require('jsonfile')
+const infoServers = require('./config')
 
 const client = new Discord.Client();
 
@@ -13,6 +14,10 @@ jsonfile.readFile('channelsList.json', function (err, obj) {
 	if (err) console.error(err)
 	channelIds = obj
 })
+
+client.on("ready", () => {
+	console.log("bot 1 ready!");
+});
 
 client.on("message", message => {
 
