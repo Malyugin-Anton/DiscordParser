@@ -42,25 +42,31 @@ client.on("message", message => {
 		if (message.embeds.toString() != "") {
 			if (message.content.startsWith("http")) {
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
+				console.log(' -- SEND bot - 1 -- ');
 			} else {
 				if (message.content.includes("http")) {
 					client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
+					console.log(' -- SEND bot - 1 -- ');
 				} else {
 					var embed = new Discord.MessageEmbed(message.embeds[0])
 					if (message.content == "") {
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
+						console.log(' -- SEND bot - 1 -- ');
 					} else {
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
+						console.log(' -- SEND bot - 1 -- ');
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
+						console.log(' -- SEND bot - 1 -- ');
 					}
 				}
 			}
 		} else {
 			client.guilds.get(serverid).channels.get(currentChanel.idChannelMy).send(message.content)
+			console.log(' -- SEND bot - 1 -- ');
 		}
 	}
 
 	}
 })
 
-client.login(token); //вход для бота
+client.login(token);

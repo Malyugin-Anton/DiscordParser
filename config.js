@@ -6,10 +6,10 @@
 // ID серверов должны быть типа строка
 
 module.exports = {
-  token1: 'mfa.Q8ZETXj1hxR8wUoAwhGaxOKWL9CcIucIW43WRlcO3WKjs2pgKy1h617ycE6t8Qd7lDIvm5UZFhuQHk7x0Eyh',
-  token2: 'mfa.CyeKJgElx6pK7_dmYqAPu-DJcJ9epBHnokVQEHLGP7l709NoWIffgbgby0tw4YMo4R-bLbiGT8PaWKriS4d6',
+  token1: 'mfa.hSIwDhjKu7dbZHt-w8GvUxFX5cBweV3lyxR43kmPil2WDoJVjwpGS1nPF5RQL--v4YighOPqnnAib7t1-Tu4',
+  token2: 'mfa.sK9vMVPdzEuc2k2iLl1LSw7uGaqoI8wuI1P7swAifJaIWRgXl-8XSOLtejt0PI6CR1o05AkW5PqdhxBNhjuk',
   serverIdPasr1: "379317079720853514",
   serverIdClone1: "531743897135874088",
-  serverIdPasr2: 000000000000000000,
-  serverIdClone2: 000000000000000000
+  serverIdPasr2: "531743897135874088",
+  serverIdClone2: "523258763256266752"
 };
