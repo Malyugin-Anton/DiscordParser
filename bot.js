@@ -61,7 +61,7 @@ client.on("message", message => {
 				}
 			}
 		} else {
-			client.guilds.get(serverid).channels.get(currentChanel.idChannelMy).send(message.content)
+			client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
 			console.log(' -- SEND bot - 1 -- ');
 		}
 	}
