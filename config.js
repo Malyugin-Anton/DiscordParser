@@ -3,12 +3,13 @@
 // Аккаунт с которого будем пиздить
 // serverId1 - сервер с которого нужно пиздить
 // serverId2 - промежуточный сервер для проброса сообщений
-// serverId3: ,
-// serverId4: 
+// ID серверов должны быть типа строка
 
 module.exports = {
-  token1: 'NTE4ODU0Mzc5MTk4MDg3MTkx.DxSXUw.5HiQ7i5oeENGq_KXpf2QoO68R08',
+  token1: 'mfa.Q8ZETXj1hxR8wUoAwhGaxOKWL9CcIucIW43WRlcO3WKjs2pgKy1h617ycE6t8Qd7lDIvm5UZFhuQHk7x0Eyh',
   token2: 'mfa.CyeKJgElx6pK7_dmYqAPu-DJcJ9epBHnokVQEHLGP7l709NoWIffgbgby0tw4YMo4R-bLbiGT8PaWKriS4d6',
-  serverId1: 379317079720853514,
-  serverId2: 531743897135874088
+  serverIdPasr1: "379317079720853514",
+  serverIdClone1: "531743897135874088",
+  serverIdPasr2: 000000000000000000,
+  serverIdClone2: 000000000000000000
 };

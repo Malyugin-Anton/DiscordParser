@@ -6,7 +6,7 @@
   "author": "Malyugin-Anton",
   "license": "MIT",
   "scripts": {
-    "start": "node bot.js bot-send.js",
+    "start": "node bot.js",
     "dev": "nodemon bot.js"
   },
   "dependencies": {
