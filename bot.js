@@ -31,6 +31,9 @@ client.on("message", message => {
 	//если сообщение с сервера, с которого идет парсинг
 	if (message.guild.id == serveridPars) {
 
+	// Убираем ненужное слово типа <@&477461531492352001>
+	message.content.replace(/[<@&]+[0-9]{0,}[>]/g, "");
+
 	// находим корректный объект
 	var currentChanel = channelIds.find((el) => {
 		return el.idChannelTarget == message.channel.id
@@ -42,27 +45,33 @@ client.on("message", message => {
 		if (message.embeds.toString() != "") {
 			if (message.content.startsWith("http")) {
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
-				console.log(' -- SEND bot - 1 -- ');
+					.then(m => console.log(' -- SEND bot 1 - 1 -- '))
+					.catch(e => console.log(' -- ERROR bot 1 - 1 -- '))
 			} else {
 				if (message.content.includes("http")) {
 					client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
-					console.log(' -- SEND bot - 1 -- ');
+						.then(m => console.log(' -- SEND bot 2 - 1 -- '))
+						.catch(e => console.log(' -- ERROR bot 2 - 1 -- '))
 				} else {
 					var embed = new Discord.MessageEmbed(message.embeds[0])
 					if (message.content == "") {
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
-						console.log(' -- SEND bot - 1 -- ');
+							.then(m => console.log(' -- SEND bot 3 - 1 -- '))
+							.catch(e => console.log(' -- ERROR bot 3 - 1 -- '))
 					} else {
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
-						console.log(' -- SEND bot - 1 -- ');
+							.then(m => console.log(' -- SEND bot 4 - 1 -- '))
+							.catch(e => console.log(' -- ERROR bot 4 - 1 -- '))
 						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
-						console.log(' -- SEND bot - 1 -- ');
+							.then(m => console.log(' -- SEND bot 5 - 1 -- '))
+							.catch(e => console.log(' -- ERROR bot 5 - 1 -- '))
 					}
 				}
 			}
 		} else {
 			client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.content)
-			console.log(' -- SEND bot - 1 -- ');
+				.then(m => console.log(' -- SEND bot 5 - 1 -- '))
+				.catch(e => console.log(' -- ERROR bot 5 - 1 -- '))
 		}
 	}
 
