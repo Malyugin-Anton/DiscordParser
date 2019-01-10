@@ -1,5 +1,10 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const {
+  Client,
+  Attachment,
+  MessageEmbed
+} = require('discord.js');
+
+const client = new Client();
 const infoServers = require('./config')
 
 // ID - сервер в который все идет
@@ -30,19 +35,26 @@ client.on("message", message => {
 
     if (currentChanel !== undefined) {
 
-      client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
-        .then(m => console.log(' -- SEND bot 1 - 2 -- '))
-        .catch(e => console.log(' -- ERROR bot 1 - 2 -- '))
+      console.log("message.channel.name -- " + message.channel.name);
 
+      client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
+        .then(m => console.log(' -- SEND bot 2 -- '))
+        .catch(e => console.log(' -- ERROR bot 2 -- '))
+
+      // Если есть embed
       if (message.embeds.length) {
-        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.embeds[0])
-          .then(m => {
-            console.log(' -- SEND EMBED bot 2 - 2 -- ');
-            console.log("message.embeds -- ", message.embeds.length);
-          })
-          .catch(e => {
-            console.log(' -- ERROR EMBED bot 2 - 2 -- ');
-          })
+        const embed = new MessageEmbed(message.embeds[0])
+        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
+          .then(m => { console.log(' -- EMBED bot 2 -- '); })
+          .catch(e => { console.log(' -- ERROR-EMBED bot 2 -- '); })
+      }
+
+      // Есть ли вложенные файлы?
+      if (message.attachments.array().length) {
+        const attachment = new Attachment(message.attachments.array()[0].url);
+        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(attachment)
+          .then(m => console.log(' -- FILE bot 2 -- '))
+          .catch(e => console.log(' -- ERROR-FILE bot 2 -- '))
       }
 
     } else {
