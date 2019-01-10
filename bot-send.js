@@ -30,12 +30,12 @@ client.on("message", message => {
 
     if (currentChanel !== undefined) {
 
-      client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(remoreRoleFromeMessage(message.content))
+      client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
         .then(m => console.log(' -- SEND bot 1 - 2 -- '))
         .catch(e => console.log(' -- ERROR bot 1 - 2 -- '))
 
       if (message.embeds.length) {
-        client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.embeds[0])
+        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.embeds[0])
           .then(m => {
             console.log(' -- SEND EMBED bot 2 - 2 -- ');
             console.log("message.embeds -- ", message.embeds.length);
