@@ -40,8 +40,6 @@ client.on("message", message => {
 	//если сообщение с сервера, с которого идет парсинг
 	if (message.guild.id == serveridPars) {
 
-		console.log("message.content bot 1 -- " + remoreRoleFromeMessage(message.content));
-		console.log("message.embeds bot 1 -- ", message.embeds.length);
 		console.log("message.channel.name bot 1 -- " + message.channel.name);
 
 		// находим корректный объект
@@ -56,15 +54,24 @@ client.on("message", message => {
 				.then(m => console.log(' -- SEND bot 1 - 1 -- '))
 				.catch(e => console.log(' -- ERROR bot 1 - 1 -- '))
 
+			// Если есть embed
 			if (message.embeds.length) {
-				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.embeds[0])
+				const embed = new MessageEmbed(message.embeds[0])
+				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
 					.then(m => {
-						console.log(' -- SEND EMBED bot 2 - 1 -- ');
-						console.log("message.embeds -- ", message.embeds.length);
+						console.log(' -- EMBED bot 2 -- ');
 					})
 					.catch(e => {
-						console.log(' -- ERROR EMBED bot 2 - 1 -- ');
+						console.log(' -- ERROR-EMBED bot 2 -- ');
 					})
+			}
+
+			// Есть ли вложенные файлы?
+			if (message.attachments.array().length) {
+				const attachment = new Attachment(message.attachments.array()[0].url);
+				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(attachment)
+					.then(m => console.log(' -- FILE bot 2 -- '))
+					.catch(e => console.log(' -- ERROR-FILE bot 2 -- '))
 			}
 		}
 

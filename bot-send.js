@@ -31,11 +31,11 @@ client.on("message", message => {
   //если сообщение с сервера, с которого идет парсинг
   if (message.guild.id == serveridPars) {
 
+    console.log("message.channel.name bot 2 -- " + message.channel.name);
+
     var currentChanel = client.guilds.get(serverIdClone).channels.find(x => x.name === message.channel.name);
 
     if (currentChanel !== undefined) {
-
-      console.log("message.channel.name -- " + message.channel.name);
 
       client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
         .then(m => console.log(' -- SEND bot 2 -- '))
