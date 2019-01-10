@@ -1,8 +1,12 @@
-const Discord = require('discord.js');
+const {
+	Client,
+	Attachment,
+	MessageEmbed
+} = require('discord.js');
 const jsonfile = require('jsonfile')
 const infoServers = require('./config')
 
-const client = new Discord.Client();
+const client = new Client();
 
 // ID - сервер в который все идет
 const serverIdClone = infoServers.serverIdClone1;
