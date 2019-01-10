@@ -51,18 +51,18 @@ client.on("message", message => {
 		if (currentChanel !== undefined) {
 
 			client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(remoreRoleFromeMessage(message.content))
-				.then(m => console.log(' -- SEND bot 1 - 1 -- '))
-				.catch(e => console.log(' -- ERROR bot 1 - 1 -- '))
+				.then(m => console.log(' -- SEND bot 1 -- '))
+				.catch(e => console.log(' -- ERROR bot 1 -- '))
 
 			// Если есть embed
 			if (message.embeds.length) {
 				const embed = new MessageEmbed(message.embeds[0])
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
 					.then(m => {
-						console.log(' -- EMBED bot 2 -- ');
+						console.log(' -- EMBED bot 1 -- ');
 					})
 					.catch(e => {
-						console.log(' -- ERROR-EMBED bot 2 -- ');
+						console.log(' -- ERROR-EMBED bot 1 -- ');
 					})
 			}
 
@@ -70,8 +70,8 @@ client.on("message", message => {
 			if (message.attachments.array().length) {
 				const attachment = new Attachment(message.attachments.array()[0].url);
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(attachment)
-					.then(m => console.log(' -- FILE bot 2 -- '))
-					.catch(e => console.log(' -- ERROR-FILE bot 2 -- '))
+					.then(m => console.log(' -- FILE bot 1 -- '))
+					.catch(e => console.log(' -- ERROR-FILE bot 1 -- '))
 			}
 		}
 
