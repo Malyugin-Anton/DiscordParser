@@ -9,9 +9,18 @@ const serveridPars = infoServers.serverIdPasr2;
 
 const token = infoServers.token2;
 
+function remoreRoleFromeMessage(message) {
+  // Убираем ненужное слово типа <@&477461531492352001>
+  return message.replace(/[<@&]+[0-9]{0,}[>]/g, "");
+}
+
 client.on("ready", () => {
   console.log("bot 2 ready!");
 });
+
+client.on("error", (e) => {
+  console.log(e);
+})
 
 client.on("message", message => {
   //если сообщение с сервера, с которого идет парсинг
@@ -21,41 +30,21 @@ client.on("message", message => {
 
     if (currentChanel !== undefined) {
 
-      // Убираем ненужное слово типа <@&477461531492352001>
-      message.content.replace(/[<@&]+[0-9]{0,}[>]/g, "");
+      client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(remoreRoleFromeMessage(message.content))
+        .then(m => console.log(' -- SEND bot 1 - 2 -- '))
+        .catch(e => console.log(' -- ERROR bot 1 - 2 -- '))
 
-      //выполнять, если есть embed
-      if (message.embeds.toString() != "") {
-        if (message.content.startsWith("http")) {
-          client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.content)
-            .then(m => console.log(' -- SEND bot 1 - 2 -- '))
-            .catch(e => console.log(' -- ERROR bot 1 - 2 -- '))
-        } else {
-          if (message.content.includes("http")) {
-            client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.content)
-              .then(m => console.log(' -- SEND bot 2 - 2 -- '))
-              .catch(e => console.log(' -- ERROR bot 2 - 2 -- '))
-          } else {
-            var embed = new Discord.MessageEmbed(message.embeds[0])
-            if (message.content == "") {
-              client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
-                .then(m => console.log(' -- SEND bot 3 - 2 -- '))
-                .catch(e => console.log(' -- ERROR bot 3 - 2 -- '))
-            } else {
-              client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.content)
-                .then(m => console.log(' -- SEND bot 4 - 2 -- '))
-                .catch(e => console.log(' -- ERROR bot 4 - 2 -- '))
-              client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
-                .then(m => console.log(' -- SEND bot 5 - 2 -- '))
-                .catch(e => console.log(' -- ERROR bot 5 - 2 -- '))
-            }
-          }
-        }
-      } else {
-        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.content)
-          .then(m => console.log(' -- SEND bot 6 - 2 -- '))
-          .catch(e => console.log(' -- ERROR bot 6 - 2 -- '))
+      if (message.embeds.length) {
+        client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(message.embeds[0])
+          .then(m => {
+            console.log(' -- SEND EMBED bot 2 - 2 -- ');
+            console.log("message.embeds -- ", message.embeds.length);
+          })
+          .catch(e => {
+            console.log(' -- ERROR EMBED bot 2 - 2 -- ');
+          })
       }
+
     } else {
       console.log('Имя канала на которм вылетает ошибка -- ' + message.channel.name)
     }
