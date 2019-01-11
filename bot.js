@@ -41,10 +41,10 @@ client.on("error", (e) => {
 
 client.on("message", message => {
 
+	console.log("message.channel.name bot 1 -- " + message.channel.name);
+
 	//если сообщение с сервера, с которого идет парсинг
 	if (message.guild.id == serveridPars) {
-
-		console.log("message.channel.name bot 1 -- " + message.channel.name);
 
 		// находим корректный объект
 		var currentChanel = channelIds.find((el) => {
