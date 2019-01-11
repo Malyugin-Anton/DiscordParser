@@ -55,7 +55,7 @@ client.on("ready", () => {
 });
 
 client.on("error", (e) => {
-	logger.info('client on error');
+	logger.info('client 1 on error');
 })
 
 client.on("message", message => {
@@ -74,8 +74,12 @@ client.on("message", message => {
 		if (currentChanel !== undefined) {
 
 			client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(remoreRoleFromeMessage(message.content))
-				.then(m => logger.info(' -- SEND bot 1 -- '))
-				.catch(e => logger.error(' -- ERROR bot 1 -- '))
+				.then(m => {
+					logger.info(' -- SEND bot 1 -- ')
+				})
+				.catch(e => {
+					logger.error(' -- ERROR bot 1 -- ')
+				})
 
 			// Если есть embed
 			if (message.embeds.length) {
@@ -93,8 +97,12 @@ client.on("message", message => {
 			if (message.attachments.array().length) {
 				const attachment = new Attachment(message.attachments.array()[0].url);
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(attachment)
-					.then(m => logger.info(' -- FILE bot 1 -- '))
-					.catch(e => logger.error(' -- ERROR-FILE bot 1 -- '))
+					.then(m => {
+						logger.info(' -- FILE bot 1 -- ')
+					})
+					.catch(e => {
+						logger.error(' -- ERROR-FILE bot 1 -- ')
+					})
 			}
 		}
 

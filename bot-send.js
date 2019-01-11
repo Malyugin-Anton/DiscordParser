@@ -5,7 +5,25 @@ const {
 } = require('discord.js');
 
 const client = new Client();
-const infoServers = require('./config')
+const infoServers = require('./config');
+const log4js = require('log4js');
+
+log4js.configure({
+  appenders: {
+    bot: {
+      type: 'file',
+      filename: 'bot-logs/bot-2.log'
+    }
+  },
+  categories: {
+    default: {
+      appenders: ['bot'],
+      level: 'all'
+    }
+  }
+});
+
+const logger = log4js.getLogger('bot');
 
 // ID - сервер в который все идет
 const serverIdClone = infoServers.serverIdClone2;
@@ -20,16 +38,16 @@ function remoreRoleFromeMessage(message) {
 }
 
 client.on("ready", () => {
-  console.log("bot 2 ready!");
+  logger.info("bot 2 ready!");
 });
 
 client.on("error", (e) => {
-  console.log(e);
+  logger.info('client 2 on error');
 })
 
 client.on("message", message => {
 
-  console.log("message.channel.name bot 2 -- " + message.channel.name);
+  logger.info("message.channel.name bot 2 -- " + message.channel.name);
 
   //если сообщение с сервера, с которого идет парсинг
   if (message.guild.id == serveridPars) {
@@ -39,27 +57,39 @@ client.on("message", message => {
     if (currentChanel !== undefined) {
 
       client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
-        .then(m => console.log(' -- SEND bot 2 -- '))
-        .catch(e => console.log(' -- ERROR bot 2 -- '))
+        .then(m => {
+          logger.info(' -- SEND bot 2 -- ')
+        })
+        .catch(e => {
+          logger.error(' -- ERROR bot 2 -- ')
+        })
 
       // Если есть embed
       if (message.embeds.length) {
         const embed = new MessageEmbed(message.embeds[0])
         client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
-          .then(m => { console.log(' -- EMBED bot 2 -- '); })
-          .catch(e => { console.log(' -- ERROR-EMBED bot 2 -- '); })
+          .then(m => {
+            logger.info(' -- EMBED bot 2 -- ');
+          })
+          .catch(e => { 
+            logger.error(' -- ERROR-EMBED bot 2 -- '); 
+          })
       }
 
       // Есть ли вложенные файлы?
       if (message.attachments.array().length) {
         const attachment = new Attachment(message.attachments.array()[0].url);
         client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(attachment)
-          .then(m => console.log(' -- FILE bot 2 -- '))
-          .catch(e => console.log(' -- ERROR-FILE bot 2 -- '))
+          .then(m => {
+            logger.info(' -- FILE bot 2 -- ')
+          })
+          .catch(e => {
+            logger.error(' -- ERROR-FILE bot 2 -- ')
+          })
       }
 
     } else {
-      console.log('Имя канала на которм вылетает ошибка -- ' + message.channel.name)
+      logger.error('Имя канала на которм вылетает ошибка -- ' + message.channel.name)
     }
   }
 
