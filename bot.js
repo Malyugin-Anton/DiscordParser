@@ -3,8 +3,27 @@ const {
 	Attachment,
 	MessageEmbed
 } = require('discord.js');
-const jsonfile = require('jsonfile')
-const infoServers = require('./config')
+
+const jsonfile = require('jsonfile');
+const infoServers = require('./config');
+const log4js = require('log4js');
+
+log4js.configure({
+	appenders: {
+		bot: {
+			type: 'file',
+			filename: 'bot-logs/bot-1.log'
+		}
+	},
+	categories: {
+		default: {
+			appenders: ['bot'],
+			level: 'all'
+		}
+	}
+});
+
+const logger = log4js.getLogger('bot');
 
 const client = new Client();
 
@@ -20,8 +39,8 @@ var channelIds = [];
 // Читаем JSON файл с описанием каналов
 jsonfile.readFile('channelsList.json', function (err, obj) {
 	if (err) {
-		console.log('Ошибка в чтении файла channelsList.json')
-		console.error(err)
+		logger.info('Ошибка в чтении файла channelsList.json');
+		logger.error(err)
 	}
 	channelIds = obj
 })
@@ -32,16 +51,16 @@ function remoreRoleFromeMessage(message) {
 }
 
 client.on("ready", () => {
-	console.log("bot 1 ready!");
+	logger.info("bot 1 ready!");
 });
 
 client.on("error", (e) => {
-	console.log(e);
+	logger.info('client on error');
 })
 
 client.on("message", message => {
 
-	console.log("message.channel.name bot 1 -- " + message.channel.name);
+	logger.info("message.channel.name bot 1 -- " + message.channel.name);
 
 	//если сообщение с сервера, с которого идет парсинг
 	if (message.guild.id == serveridPars) {
@@ -55,18 +74,18 @@ client.on("message", message => {
 		if (currentChanel !== undefined) {
 
 			client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(remoreRoleFromeMessage(message.content))
-				.then(m => console.log(' -- SEND bot 1 -- '))
-				.catch(e => console.log(' -- ERROR bot 1 -- '))
+				.then(m => logger.info(' -- SEND bot 1 -- '))
+				.catch(e => logger.error(' -- ERROR bot 1 -- '))
 
 			// Если есть embed
 			if (message.embeds.length) {
 				const embed = new MessageEmbed(message.embeds[0])
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
 					.then(m => {
-						console.log(' -- EMBED bot 1 -- ');
+						logger.info(' -- EMBED bot 1 -- ');
 					})
 					.catch(e => {
-						console.log(' -- ERROR-EMBED bot 1 -- ');
+						logger.error(' -- ERROR-EMBED bot 1 -- ');
 					})
 			}
 
@@ -74,8 +93,8 @@ client.on("message", message => {
 			if (message.attachments.array().length) {
 				const attachment = new Attachment(message.attachments.array()[0].url);
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(attachment)
-					.then(m => console.log(' -- FILE bot 1 -- '))
-					.catch(e => console.log(' -- ERROR-FILE bot 1 -- '))
+					.then(m => logger.info(' -- FILE bot 1 -- '))
+					.catch(e => logger.error(' -- ERROR-FILE bot 1 -- '))
 			}
 		}
 

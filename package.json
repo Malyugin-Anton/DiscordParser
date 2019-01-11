@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "discord.js": "^11.4.2",
-    "jsonfile": "^5.0.0"
+    "jsonfile": "^5.0.0",
+    "log4js": "^3.0.6"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
