@@ -32,11 +32,6 @@ const serveridPars = infoServers.serverIdPasr2;
 
 const token = infoServers.token2;
 
-function remoreRoleFromeMessage(message) {
-  // Убираем ненужное слово типа <@&477461531492352001>
-  return message.replace(/[<@&]+[0-9]{0,}[>]/g, "");
-}
-
 client.on("ready", () => {
   logger.info("bot 2 ready!");
 });
@@ -56,7 +51,7 @@ client.on("message", message => {
 
     if (currentChanel !== undefined) {
 
-      client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(remoreRoleFromeMessage(message.content))
+      client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(message.content)
         .then(m => {
           logger.info(' -- SEND bot 2 -- ')
         })
