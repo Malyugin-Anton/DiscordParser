@@ -83,7 +83,13 @@ client.on("message", message => {
 
 			// Если есть embed
 			if (message.embeds.length) {
-				const embed = new MessageEmbed(message.embeds[0])
+				let embed = '';
+				try {
+					embed = new MessageEmbed(message.embeds[0])
+				} catch (e) {
+					logger.error(' -- ERROR new MessageEmbed bot 1 -- ');
+				}
+
 				client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
 					.then(m => {
 						logger.info(' -- EMBED bot 1 -- ');
