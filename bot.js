@@ -47,7 +47,13 @@ jsonfile.readFile('channelsList.json', function (err, obj) {
 
 function remoreRoleFromeMessage(message) {
 	// Убираем ненужное слово типа <@&477461531492352001>
-	return message.replace(/[<@&]+[0-9]{0,}[>]/g, "message");
+	var strSend = `
+		````
+		yaml
+		message
+		````
+	`
+	return message.replace(/[<@&]+[0-9]{0,}[>]/g, strSend);
 }
 
 client.on("ready", () => {
