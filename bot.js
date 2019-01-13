@@ -82,6 +82,12 @@ client.on("message", message => {
 					logger.error(' -- ERROR bot 1 -- ')
 				})
 
+			if (message.channel.id == '505794908502622223') {
+				logger.info('--EMBED--');
+				logger.info(message.embeds);
+				logger.info('--EMBED--');
+			}
+
 			// Если есть embed
 			if (message.embeds.length) {
 				let embed = '';
