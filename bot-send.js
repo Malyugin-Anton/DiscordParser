@@ -61,20 +61,33 @@ client.on("message", message => {
 
       // Если есть embed
       if (message.embeds.length) {
-        let embed = '';
         try {
-          embed = new MessageEmbed(message.embeds[0])
+
+          message.embeds.forEach(embed => {
+
+            let msgEmbed = new MessageEmbed(embed)
+
+            client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(msgEmbed)
+              .then(m => {
+                logger.info(' -- EMBED bot 2 -- ');
+              })
+              .catch(e => {
+                logger.error(' -- ERROR-EMBED bot 2 -- ');
+              })
+
+          })
+          
         } catch (e) {
           logger.error(' -- ERROR new MessageEmbed bot 2 -- ');
         }
 
-        client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
-          .then(m => {
-            logger.info(' -- EMBED bot 2 -- ');
-          })
-          .catch(e => { 
-            logger.error(' -- ERROR-EMBED bot 2 -- '); 
-          })
+        // client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(embed)
+        //   .then(m => {
+        //     logger.info(' -- EMBED bot 2 -- ');
+        //   })
+        //   .catch(e => { 
+        //     logger.error(' -- ERROR-EMBED bot 2 -- '); 
+        //   })
       }
 
       // Есть ли вложенные файлы?
