@@ -1,7 +1,8 @@
 const {
 	Client,
 	Attachment,
-	MessageEmbed
+	MessageEmbed,
+	RichEmbed
 } = require('discord.js');
 
 const jsonfile = require('jsonfile');
@@ -94,17 +95,18 @@ client.on("message", message => {
 
 					message.embeds.forEach(embed => {
 
-						logger.info('embed type -- ', embed.type)
+						if (embed.type == 'rich') {
 
-						let msgEmbed = new MessageEmbed(embed)
+							let msgEmbed = new RichEmbed(embed)
 
-						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
-							.then(m => {
-								logger.info(' -- EMBED bot 1 -- ');
-							})
-							.catch(e => {
-								logger.error(' -- ERROR-EMBED bot 1 -- ');
-							})
+							client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
+								.then(m => {
+									logger.info(' -- EMBED bot 1 -- ');
+								})
+								.catch(e => {
+									logger.error(' -- ERROR-EMBED bot 1 -- ');
+								})
+						}
 
 					})
 
