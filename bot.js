@@ -83,43 +83,38 @@ client.on("message", message => {
 					logger.error(' -- ERROR bot 1 -- ')
 				})
 
-			// if (message.channel.id == '505794908502622223') {
-			// 	logger.info('--EMBED--');
-			// 	logger.info(message.embeds);
-			// 	logger.info('--EMBED--');
-			// }
-
 			// Если есть embed
 			if (message.embeds.length) {
 				try {
 
 					message.embeds.forEach(embed => {
 
-						logger.info('---')
+						logger.info('-----')
 						logger.info(embed)
-						logger.info('---')
+						logger.info('-----')
 
-						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
-							.then(m => {
-								logger.info(' -- EMBED bot 1 -- ');
-							})
-							.catch(e => {
-								logger.error(' -- ERROR-EMBED bot 1 -- ');
-							})
+						if (embed.type == 'rich') {
+
+							let msgEmbed = new RichEmbed(embed)
+
+							logger.info('-----')
+							logger.info(msgEmbed)
+							logger.info('-----')
+
+							client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
+								.then(m => {
+									logger.info(' -- EMBED bot 1 -- ');
+								})
+								.catch(e => {
+									logger.error(' -- ERROR-EMBED bot 1 -- ');
+								})
+						}
 
 					})
 
 				} catch (e) {
 					logger.error(' -- ERROR new MessageEmbed bot 1 -- ');
 				}
-
-				// client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
-				// 	.then(m => {
-				// 		logger.info(' -- EMBED bot 1 -- ');
-				// 	})
-				// 	.catch(e => {
-				// 		logger.error(' -- ERROR-EMBED bot 1 -- ');
-				// 	})
 			}
 
 			// Есть ли вложенные файлы?
