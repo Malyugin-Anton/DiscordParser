@@ -95,18 +95,17 @@ client.on("message", message => {
 
 					message.embeds.forEach(embed => {
 
-						if (embed.type == 'rich') {
+						logger.info('---')
+						logger.info(embed)
+						logger.info('---')
 
-							let msgEmbed = new RichEmbed(embed)
-
-							client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
-								.then(m => {
-									logger.info(' -- EMBED bot 1 -- ');
-								})
-								.catch(e => {
-									logger.error(' -- ERROR-EMBED bot 1 -- ');
-								})
-						}
+						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(embed)
+							.then(m => {
+								logger.info(' -- EMBED bot 1 -- ');
+							})
+							.catch(e => {
+								logger.error(' -- ERROR-EMBED bot 1 -- ');
+							})
 
 					})
 
