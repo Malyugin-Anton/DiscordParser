@@ -1,7 +1,8 @@
 const {
   Client,
   Attachment,
-  MessageEmbed
+  MessageEmbed,
+  RichEmbed
 } = require('discord.js');
 
 const client = new Client();
@@ -62,34 +63,28 @@ client.on("message", message => {
       // Если есть embed
       if (message.embeds.length) {
         try {
-
           message.embeds.forEach(embed => {
 
-            logger.info('-----')
-            logger.info(embed)
-            logger.info('-----')
+            var msgEmbed = 'none';
 
             if (embed.type == 'rich') { 
-
-              let msgEmbed = new RichEmbed(embed)
-
-              logger.info('-----')
-              logger.info(msgEmbed)
-              logger.info('-----')
-
-              client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(msgEmbed)
-                .then(m => {
-                  logger.info(' -- EMBED bot 2 -- ');
-                })
-                .catch(e => {
-                  logger.error(' -- ERROR-EMBED bot 2 -- ');
-                })
+              msgEmbed = new RichEmbed(embed)
+            } else {
+              msgEmbed = new MessageEmbed(embed)
             }
+
+            client.guilds.get(serverIdClone).channels.get(currentChanel.id).send(msgEmbed)
+              .then(m => {
+                logger.info(' -- EMBED bot 2 -- ');
+              })
+              .catch(e => {
+                logger.error(' -- ERROR-EMBED bot 2-1 -- ');
+              })
 
           })
           
         } catch (e) {
-          logger.error(' -- ERROR new MessageEmbed bot 2 -- ');
+          logger.error(' -- ERROR-EMBED bot bot 2-2 -- ');
         }
       }
 

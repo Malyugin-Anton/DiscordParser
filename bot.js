@@ -89,31 +89,26 @@ client.on("message", message => {
 
 					message.embeds.forEach(embed => {
 
-						logger.info('-----')
-						logger.info(embed)
-						logger.info('-----')
+						var msgEmbed = 'none';
 
 						if (embed.type == 'rich') {
-
-							let msgEmbed = new RichEmbed(embed)
-
-							logger.info('-----')
-							logger.info(msgEmbed)
-							logger.info('-----')
-
-							client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
-								.then(m => {
-									logger.info(' -- EMBED bot 1 -- ');
-								})
-								.catch(e => {
-									logger.error(' -- ERROR-EMBED bot 1 -- ');
-								})
+							msgEmbed = new RichEmbed(embed)
+						} else {
+							msgEmbed = new MessageEmbed(embed)
 						}
+
+						client.guilds.get(serverIdClone).channels.get(currentChanel.idChannelMy).send(msgEmbed)
+							.then(m => {
+								logger.info(' -- EMBED bot 1 -- ');
+							})
+							.catch(e => {
+								logger.error(' -- ERROR-EMBED bot 1-1 -- ');
+							})
 
 					})
 
 				} catch (e) {
-					logger.error(' -- ERROR new MessageEmbed bot 1 -- ');
+					logger.error(' -- ERROR-EMBED bot 1-2 -- ');
 				}
 			}
 
