@@ -4,14 +4,6 @@
     "idChannelTarget": "413311696648536065",
     "idChannelMy": "531743897135874090"
   }, {
-    "name": "calendar",
-    "idChannelTarget": "505794908502622223",
-    "idChannelMy": "531913347541499915"
-  }, {
-    "name": "inner-circle",
-    "idChannelTarget": "396235281847681026",
-    "idChannelMy": "531913533873717268"
-  }, {
     "name": "technical-support",
     "idChannelTarget": "515967670575693824",
     "idChannelMy": "531913681018028053"
@@ -531,5 +523,81 @@
     "name": "calendar",
     "idChannelTarget": "505794908502622223",
     "idChannelMy": "531913347541499915"
+  }, {
+    "name": "60-wolfpack-short-term-binance",
+    "idChannelTarget": "516187486901239838",
+    "idChannelMy": "531922204678422538"
+  }, {
+    "name": "wolfpack-alts",
+    "idChannelTarget": "516187723669831691",
+    "idChannelMy": "534590045349347338"
+  }, {
+    "name": "raticoin",
+    "idChannelTarget": "534767222342680576",
+    "idChannelMy": "534766712046747648"
+  }, {
+    "name": "edward-morra",
+    "idChannelTarget": "489153829410045952",
+    "idChannelMy": "535054217354674196"
+  }, {
+    "name": "info-crypto-alt",
+    "idChannelTarget": "525732227389063189",
+    "idChannelMy": "535055063501111297"
+  }, {
+    "name": "bravado-black-margin",
+    "idChannelTarget": "523433508933337108",
+    "idChannelMy": "535055923731759115"
+  }, {
+    "name": "killmex",
+    "idChannelTarget": "525734922040901642",
+    "idChannelMy": "535056309662384138"
+  }, {
+    "name": "bravado-black",
+    "idChannelTarget": "523433444982915083",
+    "idChannelMy": "535061211142815764"
+  }, {
+    "name": "trader-mayne",
+    "idChannelTarget": "535226757662638091",
+    "idChannelMy": "535757398330179595"
+  }, {
+    "name": "wolfpack-margin",
+    "idChannelTarget": "504000186775896094",
+    "idChannelMy": "535762657601519626"
+  }, {
+    "name": "bravado-black-scalps",
+    "idChannelTarget": "535222246164135968",
+    "idChannelMy": "535763548534734849"
+  }, {
+    "name": "crypto-bullet",
+    "idChannelTarget": "535222403182231555",
+    "idChannelMy": "535765097461841940"
+  }, {
+    "name": "cryptoub",
+    "idChannelTarget": "535225028170481674",
+    "idChannelMy": "535768130971107328"
+  }, {
+    "name": "signal-crypto-trading",
+    "idChannelTarget": "535221819184250880",
+    "idChannelMy": "535772814326890497"
+  }, {
+    "name": "cryptotrader-premium",
+    "idChannelTarget": "535222520404508672",
+    "idChannelMy": "535773221937479691"
+  }, {
+    "name": "pastore-alts",
+    "idChannelTarget": "535223506053365780",
+    "idChannelMy": "535775498085597194"
+  }, {
+    "name": "triangle-trades",
+    "idChannelTarget": "535223569043423263",
+    "idChannelMy": "535777849861341225"
+  }, {
+    "name": "swing-trades",
+    "idChannelTarget": "535223593924296704",
+    "idChannelMy": "535781334036250625"
+  }, {
+    "name": "ibc",
+    "idChannelTarget": "536323919729131538",
+    "idChannelMy": "536446874182352897"
   }
 ]
