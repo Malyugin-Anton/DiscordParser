@@ -599,5 +599,55 @@
     "name": "ibc",
     "idChannelTarget": "536323919729131538",
     "idChannelMy": "536446874182352897"
+  },
+  {
+    "name": "trooper-enteries",
+    "idChannelTarget": "538477273062572042",
+    "idChannelMy": "539104913171677194"
+  },
+  {
+    "name": "trooper-analysis",
+    "idChannelTarget": "538477308261040149",
+    "idChannelMy": "539105074748850176"
+  },
+  {
+    "name": "scalps",
+    "idChannelTarget": "538884512097239060",
+    "idChannelMy": "539105171301466112"
+  },
+  {
+    "name": "baseplay-bot",
+    "idChannelTarget": "538470261016494080",
+    "idChannelMy": "539108673490911234"
+  },
+  {
+    "name": "chase-analysis",
+    "idChannelTarget": "539566016385253386",
+    "idChannelMy": "539599696323149825"
+  },
+  {
+    "name": "chase-enteres",
+    "idChannelTarget": "539566040309432369",
+    "idChannelMy": "539599819245879306"
+  },
+  {
+    "name": "verified-margin",
+    "idChannelTarget": "539566224577921044",
+    "idChannelMy": "539608479548047370"
+  },
+  {
+    "name": "margin-signals",
+    "idChannelTarget": "539566349228310548",
+    "idChannelMy": "539610137141182464"
+  },
+  {
+    "name": "valcoin",
+    "idChannelTarget": "539571760081797131",
+    "idChannelMy": "539610283447156746"
+  },
+  {
+    "name": "verified-alts",
+    "idChannelTarget": "539566303539888131",
+    "idChannelMy": "539612751585345538"
   }
 ]
