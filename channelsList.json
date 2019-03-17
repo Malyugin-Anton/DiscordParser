@@ -1,5 +1,4 @@
-[
-  {
+[{
     "name": "learning-materials",
     "idChannelTarget": "413311696648536065",
     "idChannelMy": "531743897135874090"
@@ -32,7 +31,7 @@
     "idChannelTarget": "531111448672469002",
     "idChannelMy": "531914618772258826"
   }, {
-    "name": "rivers-alts-shortterm",
+    "name": "alts-trades",
     "idChannelTarget": "531113208698634240",
     "idChannelMy": "531915199016599583"
   }, {
@@ -40,7 +39,7 @@
     "idChannelTarget": "531113190109741066",
     "idChannelMy": "531915276480937994"
   }, {
-    "name": "lisas-challenge",
+    "name": "million-dollar-challenge",
     "idChannelTarget": "531113168949346304",
     "idChannelMy": "531915355304624148"
   }, {
@@ -48,7 +47,7 @@
     "idChannelTarget": "531112604958064641",
     "idChannelMy": "531915703796760596"
   }, {
-    "name": "lisas-btc",
+    "name": "btc-signals",
     "idChannelTarget": "531113078708764683",
     "idChannelMy": "531915859829063680"
   }, {
@@ -400,23 +399,23 @@
     "idChannelTarget": "546394610549653505",
     "idChannelMy": "546414690243444752"
   }, {
-    "name": "lisas-eth",
+    "name": "eth-signals",
     "idChannelTarget": "546397516531499008",
     "idChannelMy": "546420139986255883"
   }, {
-    "name": "lisas-bch",
+    "name": "bchsv-signals",
     "idChannelTarget": "546397805166592001",
     "idChannelMy": "546420497185898547"
   }, {
-    "name": "lisas-alt-signals",
+    "name": "alts-usd-signals",
     "idChannelTarget": "546397546348544020",
     "idChannelMy": "546424764919709717"
   }, {
-    "name": "lisas-alt-updates",
+    "name": "alts-usd-updates",
     "idChannelTarget": "546397573917835285",
     "idChannelMy": "546425485052346369"
   }, {
-    "name": "lisas-alt-watch",
+    "name": "alts-watchlist",
     "idChannelTarget": "546397844110573570",
     "idChannelMy": "546426173018734607"
   }, {
@@ -428,19 +427,19 @@
     "idChannelTarget": "546397997907312640",
     "idChannelMy": "546429368440717539"
   }, {
-    "name": "rivers-alts-longterm",
+    "name": "alts-longterm-charts",
     "idChannelTarget": "546398080405078026",
     "idChannelMy": "546431380964245508"
   }, {
-    "name": "rivers-alts-trades",
+    "name": "alts-updates",
     "idChannelTarget": "546398305286881290",
     "idChannelMy": "546431906942681119"
   }, {
-    "name": "rivers-bch",
+    "name": "bchsv",
     "idChannelTarget": "546398217487777792",
     "idChannelMy": "546433980111781891"
   }, {
-    "name": "rivers-eth",
+    "name": "eth",
     "idChannelTarget": "546398236756410409",
     "idChannelMy": "546434088064778250"
   }, {
@@ -499,5 +498,44 @@
     "name": "bitcoin-profit-lab",
     "idChannelTarget": "501776522332340227",
     "idChannelMy": "554033532285222932"
-  }
-]
+  }, {
+    "name": "btc-updates",
+    "idChannelTarget": "555948235391500318",
+    "idChannelMy": "556641774169227289"
+  }, {
+    "name": "eth-updates",
+    "idChannelTarget": "555948291184001045",
+    "idChannelMy": "556644523015667713"
+  }, {
+    "name": "bchcv-updates",
+    "idChannelTarget": "555948504397119488",
+    "idChannelMy": "556646006553313300"
+  }, {
+    "name": "alts-btc-signals",
+    "idChannelTarget": "555948882295652352",
+    "idChannelMy": "556648376532467728"
+  }, {
+    "name": "alts-btc-updates",
+    "idChannelTarget": "555948924184297475",
+    "idChannelMy": "556649317583159306"
+  }, {
+    "name": "ss-trade-results",
+    "idChannelTarget": "555949346772746242",
+    "idChannelMy": "556652205449674752"
+  }, {
+    "name": "bitmex-challenge",
+    "idChannelTarget": "555949412799741952",
+    "idChannelMy": "556652886361374720"
+  }, {
+    "name": "btc-trades",
+    "idChannelTarget": "555949485277184002",
+    "idChannelMy": "556653238422732810"
+  }, {
+    "name": "btc-updates",
+    "idChannelTarget": "555949517657079818",
+    "idChannelMy": "556653611640291353"
+  }, {
+    "name": "btc-long-term-charts",
+    "idChannelTarget": "555950006775971852",
+    "idChannelMy": "556654026570334219"
+  }]
