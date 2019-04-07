@@ -96,7 +96,7 @@
     "idChannelMy": "531918033803935784"
   }, {
     "name": "14-antimex",
-    "idChannelTarget": "525730715099332608",
+    "idChannelTarget": "563791000418517013",
     "idChannelMy": "531918127173206016"
   }, {
     "name": "15-bitcoin-fund-manager",
@@ -300,7 +300,7 @@
     "idChannelMy": "539105171301466112"
   }, {
     "name": "baseplay-bot",
-    "idChannelTarget": "538470261016494080",
+    "idChannelTarget": "563780102194855972",
     "idChannelMy": "539108673490911234"
   }, {
     "name": "chase-btc-analysis",
@@ -395,7 +395,7 @@
     "idChannelTarget": "546394659178676224",
     "idChannelMy": "546411769770541068"
   }, {
-    "name": "tradedevils",
+    "name": "bitmex-syndicate",
     "idChannelTarget": "546394610549653505",
     "idChannelMy": "546414690243444752"
   }, {
@@ -538,4 +538,9 @@
     "name": "btc-long-term-charts",
     "idChannelTarget": "555950006775971852",
     "idChannelMy": "556654026570334219"
-  }]
+  }, {
+    "name": "maxx-signals",
+    "idChannelTarget": "560118809340542987",
+    "idChannelMy": "563303454261510144"
+  }
+]
